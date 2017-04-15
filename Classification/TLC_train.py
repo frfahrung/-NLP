@@ -5,7 +5,7 @@ import json
 import numpy
 import re
 
-docList = glob.glob(os.path.josin('./training_data', '*.json'))
+docList = glob.glob(os.path.join('./training_data', '*.json'))
 # docList = glob.glob(os.path.join('./testing_data', '*.json'))
 vocab = []
 
@@ -51,7 +51,7 @@ def TF( word, wordList):
 #     return tfVector
 
 def IDF(word):
-    return math.log10(len(docList)*1.0/(countDoc(word)))
+    return math.log10(len(docList)*1.0/(countDoc(word)+1))
 
 # def IDFvector():
 #     idfVector = []
@@ -60,7 +60,7 @@ def IDF(word):
 #     return idfVector
 
 def savetocsvfile(IDFInput):
-    numpy.savetxt("test.csv", IDFInput, fmt='%4.4f', delimiter=",")
+    numpy.savetxt("train.csv", IDFInput, fmt='%4.4f', delimiter=",")
 
 def LTCdocVector():
     numOfDoc = len(docList)
