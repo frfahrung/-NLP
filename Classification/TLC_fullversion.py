@@ -7,7 +7,7 @@ import re
 
 # docList = glob.glob(os.path.join('./training_data', '*.json'))
 docList = glob.glob(os.path.join('./testing_data', '*.json'))
-vocab = [line.rstrip() for line in open('./output/vocabulary.txt')]
+vocab = [line.rstrip() for line in open('vocabulary.txt')]
 
 def getWordList(doc):
     wordList = []
@@ -56,7 +56,7 @@ def IDFvector():
     return idfVector
 
 def savetocsvfile(IDFInput):
-    numpy.savetxt("./output/test.csv", IDFInput, fmt='%4.4f', delimiter=",")
+    numpy.savetxt("test.csv", IDFInput, fmt='%4.4f', delimiter=",")
 
 def LTCdocVector():
     numOfDoc = len(docList)
