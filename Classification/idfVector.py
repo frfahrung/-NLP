@@ -8,7 +8,7 @@ import io
 
 docList = glob.glob(os.path.join('./training_data', '*.json'))
 # docList = glob.glob(os.path.join('./testing_data', '*.json'))
-vocab = [line.rstrip() for line in open('./output/vocabulary.txt')]
+vocab = [line.rstrip() for line in open('vocabulary.txt')]
 
 def getWordList(doc):
     wordList = []
@@ -50,8 +50,8 @@ def IDFvector():
     return idfVector
 
 def outputText(idfVector):
-    output_file = io.open('./output/idf_train.txt', 'w', encoding='utf8')
-    # output_file = io.open('./output/idf_test.txt', 'w', encoding='utf8')
+    output_file = io.open('idf_train.txt', 'w', encoding='utf8')
+    # output_file = io.open('idf_test.txt', 'w', encoding='utf8')
     for idf in idfVector:
         output_file.write(str(idf) + '\n')
     output_file.close()

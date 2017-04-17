@@ -7,9 +7,9 @@ import re
 
 docList = glob.glob(os.path.join('./training_data', '*.json'))
 # docList = glob.glob(os.path.join('./testing_data', '*.json'))
-vocab = [line.rstrip() for line in open('./output/vocabulary.txt')]
-idfVector = [line.rstrip() for line in open('./output/idf_train.txt')]
-# idfVector = [line.rstrip() for line in open('./output/idf_test.txt')]
+vocab = [line.rstrip() for line in open('vocabulary.txt')]
+idfVector = [line.rstrip() for line in open('idf_train.txt')]
+# idfVector = [line.rstrip() for line in open('idf_test.txt')]
 
 def getWordList(doc):
     wordList = []
@@ -32,8 +32,8 @@ def TFvector(doc):
     return tfVector
 
 def savetocsvfile(IDFInput):
-    numpy.savetxt("./output/LTC_train.csv", IDFInput, fmt='%4.4f', delimiter=",")
-    # numpy.savetxt("./output/LTC_test.csv", IDFInput, fmt='%4.4f', delimiter=",")
+    numpy.savetxt("LTC_train.csv", IDFInput, fmt='%4.4f', delimiter=",")
+    # numpy.savetxt("LTC_test.csv", IDFInput, fmt='%4.4f', delimiter=",")
 
 def LTCdocVector():
     numOfDoc = len(docList)
